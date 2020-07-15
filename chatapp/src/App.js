@@ -19,8 +19,20 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <Footer hi = "hello" foo = "hi"/>
+      
     </div>
   );
+
 }
+
+function Footer(props) {
+  console.log(props)
+  return <div>Hello world!</div>
+  
+}
+
+
 
 export default App;
