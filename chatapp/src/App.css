@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
+*{
+  box-sizing: border-box;
+}
+html, #root{
+  height:100%;
+  width:100%;
+  display:flex;
+}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;
+  height:100%;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background:linear-gradient(145deg, rgb(0, 100, 109) 42%, rgb(65, 28, 206)) 0% 0% / cover; 
+  color:white;
+}
+.main{
+    display:flex;
+    flex:1;
+    width:100%;
+    flex-direction:column;
+    justify-content:space-between;
+}
+header{
+    height:32px;
+    border-bottom:1px solid white;
+    width:100%;
+    background:rgba(255,255,255,0.3);
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+header img {
+    height: 28px;
+    margin: 0 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.footer{
+    border-top:1px solid white;
+    background:rgba(255,255,255,0.3);
+    display:flex;
+    position:relative;
+}
+.text-input{
+    flex:1;
+    border-radius:12px;
+    border:1px solid white;
+    background:black;
+    margin:3px 4px;
+    outline:none;
+    color:white;
+    font-size:12px;
+    height:24px;
+    padding-left:8px;
+}
+.send-button{
+    position:absolute;
+    top:5px;
+    right:6px;
+    border-radius:10px;
+    outline:none;
+    border:1px solid white;
+    height:20px;
+    width:20px;
+    font-size:10px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.msg{
+  width:100%;
+  display:flex;
+}
+.msg-bubble{
+  color:white;
+  background: black;
+  border-radius:6px;
+  border:1px solid grey;
+  padding:4px 10px;
+  display: inline-block;
+  margin:5px;
+}
+.msg-name{
+  font-size: 10px;
+  margin-left: 6px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.messages{
+  overflow-y:scroll;
+  flex:1;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
+}
+
+.name-picker{
+  margin-right:15px;
+  display:flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.name-picker svg{
+  margin-left:6px;
+  cursor: pointer;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.name-picker svg:hover{
+  transform:scale(1.2);
+}
+.name-picker input {
+  border-radius:10px;
+  outline:none;
+  border:1px solid white;
+  padding-left:7px;
 }

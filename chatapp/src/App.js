@@ -1,38 +1,31 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Footer from './footer'
+import Message from './message'
 
 function App() {
+  const [messages, setMessages] = useState('')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <main className = "main">
+      <header>
+        <img src="" alt="logo"/>
+        <span>Chat App</span>
       </header>
 
-      <Footer hi = "hello" foo = "hi"/>
-      
-    </div>
+      <div className = "messages">
+        {messages.map((m, i) => 
+          {return <Message key = {i} text = {m} />})}
+      </div>
+
+      <Footer
+        onSend={(text) => setMessages([...messages, text])}
+      />
+
+    </main>
   );
 
 }
-
-function Footer(props) {
-  console.log(props)
-  return <div>Hello world!</div>
-  
-}
-
 
 
 export default App;
