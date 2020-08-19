@@ -4,9 +4,26 @@ import './App.css';
 import Footer from './footer'
 import Message from './message'
 import {initialize, useDatu} from 'datu'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 function App() {
-  const{messages, send} = useDatu()
+  useEffect(() => {
+    const path = window.location.pathname
+    if (path.length < 2) {
+      window.location.pathname = '/home'
+      /* Ensures that you're always in some room */
+    }
+  }, [])
+
+  return <BrowserRouter>
+    <Route path = "/:room" component = {Room} />
+  </BrowserRouter>
+}
+
+function Room(props) {
+  const room = props.match.params.room
+  /* Keeps track of which room you're in */
+  const{messages, send} = useDatu(room)
   /*const [messages, setMessages] = useState([]) /* Messages are an array! */
   return (
     <main className = "main">
@@ -22,7 +39,7 @@ function App() {
       </div>
 
       <Footer
-        onSend={(text) => send({text:text})}
+        onSend={(text) => send({text, room})}
       />
 
     </main>
@@ -33,12 +50,12 @@ function App() {
 export default App;
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDWXVgUqm3xATyzqUqTxcpvsW7U804ctXI",
-  authDomain: "chatter20202020.firebaseapp.com",
-  databaseURL: "https://chatter20202020.firebaseio.com",
-  projectId: "chatter20202020",
-  storageBucket: "chatter20202020.appspot.com",
-  messagingSenderId: "630230183323",
-  appId: "1:630230183323:web:cc967f51fc79e394ca053e"
+  apiKey: "AIzaSyDgRMtSywf0auWMZOQGnJrOyygVdwQ_p4k",
+  authDomain: "chatapp-tejusk.firebaseapp.com",
+  databaseURL: "https://chatapp-tejusk.firebaseio.com",
+  projectId: "chatapp-tejusk",
+  storageBucket: "chatapp-tejusk.appspot.com",
+  messagingSenderId: "970941836",
+  appId: "1:970941836:web:4168c03bde2a69e14162a9"
 };
 initialize(firebaseConfig)

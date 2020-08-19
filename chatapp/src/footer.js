@@ -7,7 +7,7 @@ function Footer(props) {
             value={text}
             onChange={e => setText(e.target.value)}
             onKeyPress = {e => {
-                if(e.key === 'Enter') {
+                if(e.key === 'Enter' && text) {
                     props.onSend(text)
                     setText('')
                 }
@@ -16,8 +16,10 @@ function Footer(props) {
         />
         <button className="send-button"
             onClick={()=> {
-                props.onSend(text) /* Send message */
-                setText('') /* Set input back to empty */
+                if (text) { /* Only send if there's any text input */
+                    props.onSend(text) /* Send message */
+                    setText('') /* Set input back to empty */
+                }
             }}>
             ↑
         </button>
