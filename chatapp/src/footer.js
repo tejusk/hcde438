@@ -16,8 +16,8 @@ function Footer(props) {
         />
         <button className="send-button"
             onClick={()=> {
-                props.onSend(text)
-                setText('')
+                props.onSend(text) /* Send message */
+                setText('') /* Set input back to empty */
             }}>
             ↑
         </button>

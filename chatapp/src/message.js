@@ -2,8 +2,8 @@ import React from 'react'
 
 function Message(props) {
     return <div className="msg" style={{
-        flexDirection: props.isMe ? 'row-reverse' : 'row'
-    }}> (
+        flexDirection: props.isMe ? 'row' : 'row'
+    }}>
         <div>
             <div className="msg-name">
             {props.name || "Unknown"}
