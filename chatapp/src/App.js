@@ -5,6 +5,7 @@ import Footer from './footer'
 import Message from './message'
 import {initialize, useDatu} from 'datu'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import NamePicker from './namePicker'
 
 function App() {
   useEffect(() => {
@@ -25,6 +26,7 @@ function Room(props) {
   /* Keeps track of which room you're in */
   const{messages, send} = useDatu(room)
   /*const [messages, setMessages] = useState([]) /* Messages are an array! */
+  
   return (
     <main className = "main">
       <header>
